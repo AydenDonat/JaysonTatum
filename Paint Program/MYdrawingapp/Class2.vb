@@ -1,12 +1,9 @@
-﻿Public Class line
-    Public Property xspeed As Integer
-    Public Property yspeed As Integer
+﻿Public Class Circle
+    Public Property fill As Boolean
     Public Property Pen As Pen
     Dim m_image As Image
     Dim m_a As Point
     Dim m_b As Point
-    Dim xoffset As Integer
-    Dim yoffset As Integer
 
     Public Sub New(i As Image, a As Point, b As Point)
         Pen = Pens.Red
@@ -16,10 +13,9 @@
     End Sub
     Public Sub Draw()
         Using g As Graphics = Graphics.FromImage(m_image)
-            xoffset += xspeed
-            yoffset += yspeed
 
-            g.DrawLine(Pen, m_a.X + xoffset, m_a.Y + yoffset, m_b.X + xoffset, m_b.Y + yoffset)
+            g.DrawEllipse(Pen, m_a.X, m_a.Y, 40, 40)
+
         End Using
 
     End Sub
